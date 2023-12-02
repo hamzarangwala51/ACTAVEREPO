@@ -1,0 +1,32 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio and Visual Text Detection</title>
+</head>
+<body>
+    <h1>Audio and Visual Text Detection</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".mp3, .wav, .jpg, .jpeg, .png" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if audio_text %}
+        <h2>Audio Text:</h2>
+        <p>{{ audio_text }}</p>
+    {% endif %}
+
+    {% if visual_text %}
+        <h2>Visual Text:</h2>
+        <p>{{ visual_text }}</p>
+    {% endif %}
+</body>
+</html>
